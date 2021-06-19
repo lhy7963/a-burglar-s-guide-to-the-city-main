@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>도둑들을 위한 도시 가이드 재구성하기</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<meta name="description" content="책 '도둑들을 위한 도시 가이드'에서 아이디어를 얻어 연쇄절도범 알파와 그를 잡으려는 경찰의 추격전을 웹페이지로 구성하였다.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="citytitle.png" >
+	<meta property="og:title" content="도둑들을 위한 도시 가이드 재구성하기" >
+	<meta property="og:title" content="책 '도둑들을 위한 도시 가이드'에서 아이디어를 얻어 연쇄절도범 알파와 그를 잡으려는 경찰의 추격전을 웹페이지로 구성하였다.">
+
+</head>
+
+
+	<style type="text/css">
+		
+		html{background-color: black; color:#8F8F8F; margin: 50px; font-family: 'Noto Sans KR'}
+
+		/*영역*/
+		.pathbox{ height: 200px; display: flex; justify-content: center; text-align: center; margin-bottom: 0px}
+		.narration{margin-left: 200px;  font-size: 80px}
+		a{display: inline-block;
+			background: #1C1C1C;
+			color: #1C2020;
+			width:300px; height: 60px; 
+			text-align: center;
+			line-height: 50px;
+			text-decoration: none;
+			align-items: : center;
+			font-weight: bold;
+			border-radius: 5px;
+			/*border:1px solid darkgray;*/
+			box-shadow: 0px 0px 3px gray;
+			color: black
+			margin-bottom:30px;}
+		a:hover{
+			background: #00E4AF;
+			box-shadow: none;
+			color: white;
+			transition: all 0.5s; 
+		}
+
+		/*정렬*/
+		.center { display: flex;  justify-content: center;}
+		.justcentre{text-align: center}
+		.inline{display: inline;}
+		.absolute{position: absolute;}
+		.flex {display: flex; justify-content:space-around;}
+		.textleft{text-align: left}
+
+		/*마진*/
+		.margintop{margin-top: 200px}
+		.marginbottom{margin-bottom: 200px}
+		.marginbottom2{margin-bottom: 900px}
+		.marginbottom3{margin-bottom: 50px}
+		.displaynone{display: none;}
+		.marginright{margin-right:70px;}
+
+		/*텍스트*/
+		.firsttitletext{font-size: 5em; margin-top: 0px; margin-bottom: 0px;}
+		.titletext{font-size: 3em; margin-bottom: 10px}
+		.text{font-size: 16px}
+		.text2{font-size: 32px ; margin: 10px}
+		.textaligncenter{text-align: center}
+
+		/*컬러*/
+		.colorgreen{color: #00E4AF}
+		.colorpink{color: #FF0099}
+		.colordarkgray{color: #707070}
+		.colorwhite{color: #ffffff}
+		.twinkle {animation: twinkle	1s infinite; }
+		@keyframes twinkle{
+				0% {color: black}
+				50%{color: #FF0099}
+				100% {color: black}
+		}
+		.twinkletwo {animation: twinkletwo	1s infinite; }
+		@keyframes twinkletwo{
+				0% {opacity:100%;}
+				50%{opacity:0%}
+				100% {opacity:100%;}
+		}
+
+		/*이미지*/
+		#opacity{opacity: 0.5}
+		#map5{width: 700px; height: 357px; background: url('map5.png')}
+		#map5:hover{width: 700px; height: 357px; background: url(map6.png);}
+		.back1{width: auto; height: 400px;background: url(city2.png);background-size: 100% auto; background-attachment: fixed;}
+		.box{width: 200px; height: 150px}
+	
+
+		/*애니메이션*/
+
+		/*앱솔루트*/
+		.absolute{display: block;position: absolute;}
+		.sticker1{left:600px; width: 300px; top: 180px; z-index: 33}
+		.sticker2{left:250px; width: 100px; top: 180px; z-index: 33;  animation: leftright	3s infinite; }
+		@keyframes leftright{
+				0% {left: 10px; top:100px}
+				100% {left: 200px; top:200px}
+		}
+		.sticker3{left:1100px; width: 200px; top: 2350px; z-index: 33; animation: leftrighttwo	3s infinite; }
+		@keyframes leftrighttwo{
+				0% {left: 900px; top:2350px}
+				100% {left: 1300px; top:2350px}
+		}
+
+
+		 /*라디오버튼 숨김*/
+		 .sectionnone {
+            display: none;
+            padding: 20px 0 0;
+            border-top: 1px solid #00E4AF;}
+
+         /*라디오버튼 숨김*/
+          input {
+              display: none;}
+
+        label {
+            display: inline-block;
+            margin: 0 0 -1px;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-align: center;
+            color: #bbb;
+            border: 1px solid transparent;}
+
+        label:hover {
+            color: #00E4AF;
+            cursor: pointer;}
+
+        /*input 클릭시, label 스타일*/
+        input:checked + label {
+              color: #00E4AF;
+              border: 1px solid #00E4AF;
+              border-top: 2px solid ##00E4AF;
+              border-bottom: 1px solid ##00E4AF
+              ;}
+
+        #tab1:checked ~ #content1,
+        #tab2:checked ~ #content2,
+        #tab3:checked ~ #content3,
+        #tab4:checked ~ #content4 {
+            display: block;}
+	</style>
+</head>
+<body>
+
+	<section>
+		<DIV>
+				<h1 class="colorgreen firsttitletext"> <i> Alpha</i></h1>
+				<div class="pathbox">
+				<div class="marginright"></div>
+				<div >
+					<p>New York</p>
+					<p>2020</p>
+					<p>02 - 30</p>
+					<img src="pathnewyork.png">
+				</div>
+				<div class="marginright"></div>
+				<div>
+					<p >Rome</p>
+					<p>2020</p>
+					<p>03 - 10</p>
+					<img src="pathrome.png">
+				</div>
+				<div class="marginright"></div>
+				<div>
+					<p >Paris</p>
+					<p>2020 </p>
+					<p>07 - 15</p>
+					<img src="pathparis.png">
+				</div>
+				<div class="marginright"></div>
+				<div>
+					<p >Brasilia</p>
+					<p>2021</p>
+					<p>03 - 19</p>
+					<img src="pathberlin.png">
+				</div>
+				<div class="marginright"></div>
+				<div>
+					<p class="colorgreen">Seoul</p>
+					<p class="colorgreen">2021</p>
+					<p class="colorgreen">06 - 17</p>
+					<img src="pathseoul.png">
+				</div>
+				<div class="marginright"></div>
+
+			</div>
+		</DIV>
+	</section>
+
+	<section class="back1 marginbottom">
+		<center>
+			<B><h1 class="colorwhite titletext"> <i class="displaynone"> A burglar's guide to the city</i></h1></B>			
+		</center>
+		
+	</section>
+<section>
+	<div class="absolute sticker2">
+	<img src="police2.png">
+	</div>
+</section>
+	<section>
+		<div class="narration">
+			<div class="marginbottom">도시와 건물의<br>모든 구조는<br> <span class="colorwhite">넌센스 퀴즈</span>와 같다. ­­­</div>
+			<div class="marginbottom">영리한 도둑은<br>문제를<br> <span class="colorwhite">창의적</span>으로 <br> 풀어낸다. ­­­</div>
+			<div class="marginbottom">그들은<br> <span class="colorwhite">정해진 방식</span>에 <br> 얽매이지 않는다.  ­­­</div>
+				<div class="absolute sticker3">
+				<img src="police3.png">
+				</div>
+			<div class="marginbottom colorwhite textaligncenter">그게 문이라고 할지라도.</div>
+		</div>
+	</section>
+
+	<section class="marginbottom">
+		<div>
+			<center>
+				<img src="person.png">
+				<p class="titletext colorgreen">Who is Alpha?</p>
+				<p class="text2">2021년 5월, 경찰측은 지금까지의 <span class="text2 colorwhite">연쇄절도범 알파</span>의 범행을 분석하여 데이터를 만들었다. <br>
+경찰은 알파가 6월 17일 한 건물에 침입할 것이라고 예측하였다. <br>
+이에 따라 경찰은 데이터를 바탕으로 한 알파의 예상 범행 경로를 만들었다. </p>
+			</center>
+		</div>
+	</section>
+
+
+
+
+	<section class="marginbottom3">
+		<h1 class="colorgreen titletext">알파는 그동안 전세계 4곳에서 범행을 저질렀다.</h1>
+		<div>
+			<div class="center">
+				<div id="map5"></div>
+			</div>
+		</div>
+		<p class="text2 marginbottom">  <span class="colorwhite">로마, 뉴욕, 파리, 브라질리아. </span><br> 그는 주로 값비싼 보석을 훔쳤다. <br> 경찰은 그의 다음 범행 장소가 <span class="colorwhite">서울</span>일 것이라고 예측하였다. </p>
+	</section>
+
+	<section class="marginbottom">
+
+		<div class="main">
+    <input id="tab1" type="radio" name="tabs" checked> <!--디폴트 메뉴-->
+    <label for="tab1">New York</label>
+
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2">Rome</label>
+
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3">Paris</label>
+
+    <input id="tab4" type="radio" name="tabs">
+    <label for="tab4">Brasilia</label>
+
+    <section class="sectionnone" id="content1">
+        <p>
+        	<div class="flex">
+        		<img src="newyork.png">
+				<div>
+					<p class="titletext colorgreen">2020 - 02 - 30</p>
+					<p class="text2 colorgreen">도난 물품 : Oppenheimer <br>Blue</p>
+					<img src="oppenheimerblue.png">
+					<p>사망자 없음<br>사상자 없음<br>2500만 달러 상의 재산피해 </p>
+					<p class="text2 colorwhite">moving line</p>
+					<p>▶ February 26, 4:38 PM: Manhattan Bridge <br>▶ February 26, 4:42 PM: Brooklyn Bridge <br>▶ February 29, 12:39 PM: Wall Street<br>▶ February 29, 12:57 PM: 911 Memorial <br>▶ February 30 1:30 PM: Macy's Department Store 
+				</div>
+			</div>
+        </p>
+    </section>
+
+    <section class="sectionnone" id="content2">
+        <p >
+        	<div class="flex">
+        		<img src="rome.png">
+				<div>
+				<p class="titletext colorgreen">2020 - 03 - 10</p>
+				<p class="text2 colorgreen">도난 물품 : Hutton Mdivani <br>Jadeite Necklace</p>
+				<img src="herojadeite.jpg">
+				<p>사망자 3명<br>사상자 없음<br>2740만 달러 상의 재산피해 </p>
+				<p class="text2 colorwhite">moving line</p>
+				<p>▶ March 9, 1:18 PM: Coliseum <br>▶ March 9, 1:41 PM: Constantine Arc de Triomphe <br>▶ March 10, 6:39 PM: WPalatino Hill<br>▶ March 10, 7:07 PM:Roman Forum <br>▶ March 10, 8:30 PM: Square of Venice
+				</div>
+			</div>
+        </p>
+    </section>
+
+    <section class="sectionnone" id="content3">
+        <p>
+        <div class="flex">
+        		<img src="paris1.png">
+				<div>
+				<p class="titletext colorgreen">2020 - 07 - 15</p>
+				<p class="text2 colorgreen">도난 물품 : Ohopard <br>201-Carat Watch</p>
+				<img src="watch.png">
+				<p>사망자 없음<br>사상자 없음<br>2500만 달러 상의 재산피해 </p>
+				<p class="text2 colorwhite">moving line</p>
+				<p>▶ February 26, 4:38 PM: Manhattan Bridge <br>▶ February 26, 4:42 PM: Brooklyn Bridge <br>▶ February 29, 12:39 PM: Wall Street<br>▶February 29, 12:57 PM: 911 Memorial <br>▶February 30 1:30 PM: Macy's Department Store 
+				</div>
+			</div>
+		</p>
+    </section >
+
+    <section class="sectionnone" id="content4">
+        <p >
+        <div class="flex">
+        		<img src="brazilia.png">
+				<div>
+				<p class="titletext colorgreen">2021 - 03 - 19</p>
+				<p class="text2 colorgreen">도난 물품 : Oppenheimer <br> Blue</p>
+				<img src="necklace.png">
+				<p>사망자 1명<br>사상자 5명<br>5500만 달러 상의 재산피해 </p>
+				<p class="text2 colorwhite">moving line</p>
+				<p>▶ February 26, 4:38 PM: Manhattan Bridge <br>▶ February 26, 4:42 PM: Brooklyn Bridge <br>▶ February 29, 12:39 PM: Wall Street<br>▶February 29, 12:57 PM: 911 Memorial <br>▶February 30 1:30 PM: Macy's Department Store 
+				</div>
+			</div>
+		</p>
+    </section>
+
+ <section class="marginbottom"></section>
+
+ <section class="marginbottom">
+ 	<center>
+ 		<h1 class="colorpink titletext twinkletwo"> Seoul : Pink Diamond</h1>
+ 		<div class="twinkletwo">
+ 			<img src="pink.jpg">
+ 		</div>
+		
+ 	</center>
+		
+
+
+	<section class="marginbottom2">
+		<h1 class="colorgreen titletext"> 예상범행경로</h1>
+		<p class="text2">June 17, 02:35 PM: DaVinci Town</p>
+	<div class="absolute">
+		<img src="town.gif">
+		<div class="absolute sticker1 colorwhite">▶ June 17, 4:35 PM: <br>CU expansion headpoint <br>▶ 4:38 PM: <br>CU Pyeongtaek Head Branch <br>▶ 4:45 PM <br>CU Pyeongtaek Sosa Penalty Store<br>▶ 4:50 PM: <br>Pasgucci Sauce Penalty Store </div>
+	</div>
+	</section>
+
+	<section class="marginbottom">
+		<h1 class="colorwhite titletext"> 예상 작전 동선 : DaVinci </h1>
+		<center>
+			<img src="map1.gif">
+
+		</center>
+		
+		<div>
+			<center>
+			<b>
+			<p class="titletext colorgreen"> D-day</p>
+			<p class="titletext">Gate 1 : Closed</p>
+			<p class="titletext">Gate 2 : Closed</p>
+			<p class="titletext">Gate 3 : Closed</p>
+			<p class="titletext colorwhite">Gate 4 : Open</p>	
+			</b>
+			</center>
+		</div>
+	</section>
+	<section>
+		<center>
+			<img src="number.gif">
+		</center>
+		
+	</section>
+
+	<section>
+		<center>
+			<a class="colorgreen titletext" href="https://lhy7963.github.io/a-burglar-s-guide-to-the-city-sub/" target="_self">작전시작</a>
+					</center>
+			
+	</section>
+	</body>
+</html>
